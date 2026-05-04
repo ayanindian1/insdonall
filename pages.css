@@ -1,0 +1,155 @@
+/* ========== PAGES CSS - Shared styles for About, Contact, Privacy, Terms ========== */
+
+/* Page Hero */
+.page-hero {
+  position: relative; padding: 150px 0 60px; text-align: center; overflow: hidden;
+  background: radial-gradient(ellipse at 50% 0%, rgba(224,64,251,0.15) 0%, transparent 60%);
+}
+.page-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 20px; border-radius: 50px;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
+  font-size: 0.85rem; font-weight: 500; color: #69F0AE;
+  margin-bottom: 24px; animation: fadeInDown 0.8s ease;
+}
+.page-title {
+  font-family: 'Outfit', 'Inter', sans-serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800;
+  line-height: 1.2; letter-spacing: -0.5px; margin-bottom: 14px;
+  animation: fadeInUp 0.8s ease 0.1s both;
+}
+.page-subtitle {
+  font-size: 1.05rem; color: #9a9ab0; max-width: 500px; margin: 0 auto;
+  animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+/* Page Content */
+.page-content { padding: 60px 0 100px; }
+
+/* Content Cards */
+.content-card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px; padding: 36px 32px; margin-bottom: 20px;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeInUp 0.6s ease both;
+}
+.content-card:hover { border-color: rgba(224,64,251,0.15); transform: translateY(-2px); }
+.content-card h2 {
+  font-family: 'Outfit', 'Inter', sans-serif; font-size: 1.3rem; font-weight: 700;
+  margin-bottom: 14px; color: #f0f0f5;
+}
+.content-card p { font-size: 0.95rem; color: #9a9ab0; line-height: 1.8; margin-bottom: 12px; }
+.content-card p:last-child { margin-bottom: 0; }
+
+.content-icon {
+  width: 56px; height: 56px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(224,64,251,0.1); color: var(--accent, #E040FB);
+  margin-bottom: 20px;
+}
+
+/* Principles List */
+.principles-list { padding: 0; margin: 0; }
+.principles-list li {
+  font-size: 0.95rem; color: #9a9ab0; line-height: 1.8;
+  padding: 8px 0; padding-left: 24px; position: relative;
+}
+.principles-list li::before {
+  content: ''; position: absolute; left: 0; top: 16px;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: linear-gradient(135deg, #E040FB, #FF5252);
+}
+
+/* Legal Cards (Privacy / Terms) */
+.legal-card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px; padding: 36px 32px; margin-bottom: 16px;
+  transition: 0.3s ease;
+}
+.legal-card:hover { border-color: rgba(224,64,251,0.12); }
+.legal-card h2 {
+  font-family: 'Outfit', 'Inter', sans-serif; font-size: 1.15rem; font-weight: 700;
+  margin-bottom: 14px; color: #f0f0f5;
+  display: flex; align-items: center; gap: 10px;
+}
+.legal-card p { font-size: 0.92rem; color: #9a9ab0; line-height: 1.8; margin-bottom: 10px; }
+.legal-card p:last-child { margin-bottom: 0; }
+.legal-card ul { padding: 0; margin: 8px 0 12px; }
+.legal-card ul li {
+  font-size: 0.92rem; color: #9a9ab0; line-height: 1.8;
+  padding: 4px 0 4px 20px; position: relative;
+}
+.legal-card ul li::before {
+  content: ''; position: absolute; left: 2px; top: 13px;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(224,64,251,0.5);
+}
+.text-link {
+  color: #E040FB; text-decoration: none; font-weight: 500;
+  transition: 0.3s ease;
+}
+.text-link:hover { color: #FF5252; text-decoration: underline; }
+
+/* Contact Grid */
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1.2fr; gap: 24px; align-items: start;
+}
+.contact-item {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.contact-item:last-child { border-bottom: none; }
+.contact-item-icon {
+  width: 48px; height: 48px; border-radius: 12px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(224,64,251,0.1); color: var(--accent, #E040FB);
+}
+.contact-item h4 { font-size: 0.88rem; font-weight: 600; margin-bottom: 4px; color: #f0f0f5; }
+.contact-item p { font-size: 0.9rem; color: #9a9ab0; margin: 0; }
+.contact-link { color: #E040FB; font-size: 0.9rem; font-weight: 500; transition: 0.3s; }
+.contact-link:hover { color: #FF5252; }
+
+/* Contact Form */
+.form-group { margin-bottom: 18px; }
+.form-group label {
+  display: block; font-size: 0.85rem; font-weight: 600; color: #9a9ab0;
+  margin-bottom: 8px;
+}
+.form-group input, .form-group textarea {
+  width: 100%; padding: 14px 18px; border-radius: 12px; font-size: 0.95rem;
+  background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.08);
+  color: #f0f0f5; outline: none; transition: 0.3s; font-family: inherit;
+  resize: vertical;
+}
+.form-group input:focus, .form-group textarea:focus {
+  border-color: rgba(224,64,251,0.4); box-shadow: 0 0 20px rgba(224,64,251,0.1);
+}
+.form-group input::placeholder, .form-group textarea::placeholder { color: #6b6b80; }
+
+.submit-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 32px; border-radius: 12px;
+  font-size: 1rem; font-weight: 700; color: #fff; cursor: pointer; border: none;
+  background: linear-gradient(135deg, #E040FB 0%, #FF5252 50%, #FFD740 100%);
+  transition: 0.3s; width: 100%; justify-content: center;
+}
+.submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(224,64,251,0.3); }
+
+.form-status { margin-top: 16px; font-size: 0.9rem; text-align: center; border-radius: 8px; }
+.form-status.success { padding: 12px; background: rgba(105,240,174,0.12); color: #69F0AE; border: 1px solid rgba(105,240,174,0.2); }
+
+/* Page Footer */
+.page-footer {
+  padding: 40px 0; background: #12121a; border-top: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+}
+.footer-nav { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 20px; }
+.footer-nav a { font-size: 0.88rem; color: #6b6b80; transition: 0.3s; }
+.footer-nav a:hover { color: #f0f0f5; }
+.page-footer .copyright { font-size: 0.82rem; color: #6b6b80; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-grid { grid-template-columns: 1fr; }
+  .content-card, .legal-card { padding: 28px 20px; }
+  .page-hero { padding: 130px 0 50px; }
+}

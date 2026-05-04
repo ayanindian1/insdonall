@@ -1,0 +1,7 @@
+RewriteEngine On
+
+# Redirect all non-file requests to index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !\.php$
+RewriteRule ^(.*)$ index.html [L]

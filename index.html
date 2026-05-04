@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InsDonAll - All-in-One Video Downloader (Instagram, FB, YT, X)</title>
+  <meta name="description" content="Download videos and photos from Instagram, Facebook, YouTube, and X (Twitter) in HD quality. Free, fast, and no login required.">
+  <meta name="keywords" content="video downloader, instagram downloader, facebook video download, youtube downloader, twitter video download">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬇️</text></svg>">
+</head>
+<body>
+  <!-- Animated Background Particles -->
+  <div class="bg-particles" id="bgParticles"></div>
+
+  <!-- Header / Navbar -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="/" class="logo" id="logo">
+        <div class="logo-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <rect x="2" y="2" width="28" height="28" rx="8" stroke="url(#logoGrad)" stroke-width="2.5"/>
+            <circle cx="16" cy="16" r="6" stroke="url(#logoGrad)" stroke-width="2.5"/>
+            <circle cx="23.5" cy="8.5" r="2" fill="url(#logoGrad)"/>
+            <path d="M16 22L16 28" stroke="url(#logoGrad)" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M13 25L16 28L19 25" stroke="url(#logoGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+              <linearGradient id="logoGrad" x1="0" y1="0" x2="32" y2="32">
+                <stop stop-color="#E040FB"/>
+                <stop offset="0.5" stop-color="#FF5252"/>
+                <stop offset="1" stop-color="#FFD740"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="logo-text">Ins<span class="logo-highlight">DonAll</span></span>
+      </a>
+      <nav class="nav" id="mainNav">
+        <a href="#downloader" class="nav-link active" data-type="all">Downloader</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#how-it-works" class="nav-link">How to Use</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </nav>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="downloader">
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+    <div class="hero-glow hero-glow-3"></div>
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Free & Unlimited Downloads
+      </div>
+      <h1 class="hero-title">
+        Download Any<br>
+        <span class="gradient-text">Video & Photo Instantly</span>
+      </h1>
+      <p class="hero-subtitle">
+        Save content from Instagram, Facebook, YouTube, and X in HD quality. No login required. 
+        Just paste the link and download.
+      </p>
+
+      <!-- Platform Selection Tabs -->
+      <div class="platform-tabs" id="platformTabs">
+        <button class="platform-tab active" data-platform="instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          Instagram
+        </button>
+        <button class="platform-tab" data-platform="facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3.81l.19-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          Facebook
+        </button>
+        <button class="platform-tab" data-platform="youtube">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+          YouTube
+        </button>
+        <button class="platform-tab" data-platform="x">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l16 16M4 20L20 4"/></svg>
+          X (Twitter)
+        </button>
+      </div>
+
+      <!-- Download Input -->
+      <div class="download-box" id="downloadBox">
+        <div class="input-wrapper">
+          <div class="input-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          </div>
+          <input 
+            type="url" 
+            id="urlInput" 
+            class="url-input" 
+            placeholder="Paste video link here..." 
+            autocomplete="off"
+            spellcheck="false"
+          >
+          <button class="paste-btn" id="pasteBtn" title="Paste from clipboard">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Paste
+          </button>
+        </div>
+        <button class="download-btn" id="downloadBtn">
+          <span class="btn-content">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download
+          </span>
+          <span class="btn-loading" style="display:none">
+            <div class="spinner"></div>
+            Processing...
+          </span>
+        </button>
+      </div>
+
+      <!-- Error / Status Message -->
+      <div class="status-msg" id="statusMsg"></div>
+
+      <!-- Supported Formats Info -->
+      <div class="supported-info">
+        <span>Supported:</span>
+        <div class="format-tags" id="formatTags">
+          <span class="format-tag">Posts</span>
+          <span class="format-tag">Reels</span>
+          <span class="format-tag">Stories</span>
+          <span class="format-tag">IGTV</span>
+          <span class="format-tag">Carousel</span>
+          <span class="format-tag">Videos</span>
+          <span class="format-tag">Photos</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results Section -->
+  <section class="results-section" id="resultsSection" style="display:none">
+    <div class="container">
+      <div class="results-header">
+        <h2 class="section-title">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Content Ready
+        </h2>
+        <button class="clear-btn" id="clearResults">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Clear
+        </button>
+      </div>
+      <div class="results-grid" id="resultsGrid"></div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="how-section" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Simple Process</span>
+        <h2 class="section-title-lg">How to Download</h2>
+        <p class="section-desc">Download any Instagram content in just 3 simple steps</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card" data-step="1">
+          <div class="step-number">01</div>
+          <div class="step-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <h3 class="step-title">Copy the Link</h3>
+          <p class="step-desc">Open the app and copy the URL of any video or post you want to download.</p>
+        </div>
+        <div class="step-connector">
+          <svg width="40" height="24" viewBox="0 0 40 24"><path d="M0 12h36M30 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+        </div>
+        <div class="step-card" data-step="2">
+          <div class="step-number">02</div>
+          <div class="step-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          </div>
+          <h3 class="step-title">Paste the URL</h3>
+          <p class="step-desc">Paste the copied link into the input field above or use the paste button for quick access.</p>
+        </div>
+        <div class="step-connector">
+          <svg width="40" height="24" viewBox="0 0 40 24"><path d="M0 12h36M30 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+        </div>
+        <div class="step-card" data-step="3">
+          <div class="step-number">03</div>
+          <div class="step-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </div>
+          <h3 class="step-title">Download & Save</h3>
+          <p class="step-desc">Click the download button and save the content to your device in original HD quality.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Why InsDonAll?</span>
+        <h2 class="section-title-lg">Powerful Features</h2>
+        <p class="section-desc">Everything you need to download media effortlessly across platforms</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon" style="--accent: #E040FB">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+          <h3>Video Downloader</h3>
+          <p>Download Instagram videos from posts, reels, and IGTV in full HD quality without any watermarks.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="--accent: #448AFF">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          </div>
+          <h3>Photo Downloader</h3>
+          <p>Save Instagram photos in their original resolution. Works with single posts and carousel albums.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="--accent: #FF5252">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><polygon points="10,8 10,16 16,12"/></svg>
+          </div>
+          <h3>Reels Downloader</h3>
+          <p>Download Instagram Reels without watermark. Save trending reels directly to your device.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="--accent: #FFD740">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/></svg>
+          </div>
+          <h3>Story Saver</h3>
+          <p>Save Instagram stories from public profiles before they disappear after 24 hours.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="--accent: #69F0AE">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/></svg>
+          </div>
+          <h3>IGTV Download</h3>
+          <p>Download long-form IGTV videos in their original quality for offline viewing anytime.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="--accent: #FF6E40">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          </div>
+          <h3>Carousel / Album</h3>
+          <p>Download all images and videos from multi-slide carousel posts with a single click.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="--accent: #B388FF">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h3>Lightning Fast</h3>
+          <p>Our optimized servers process your download request in seconds. No waiting, no delays.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="--accent: #80DEEA">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3>No Login Required</h3>
+          <p>Use InsDonAll without any registration or Instagram login. Completely anonymous and secure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Got Questions?</span>
+        <h2 class="section-title-lg">Frequently Asked Questions</h2>
+        <p class="section-desc">Find quick answers to common questions about InsDonAll</p>
+      </div>
+      <div class="faq-list" id="faqList">
+        <div class="faq-item">
+          <button class="faq-question" id="faq-q1">
+            <span>What is InsDonAll?</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer" id="faq-a1">
+            <p>InsDonAll is a free online tool that allows you to download Instagram videos, photos, reels, stories, and IGTV content. Simply paste the Instagram URL and download the content in HD quality.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" id="faq-q2">
+            <span>Is InsDonAll free to use?</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer" id="faq-a2">
+            <p>Yes! InsDonAll is completely free with no hidden charges. You can download unlimited Instagram content without any subscription or payment.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" id="faq-q3">
+            <span>Do I need to log in to my Instagram account?</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer" id="faq-a3">
+            <p>No, you do not need to log in or provide any Instagram credentials. InsDonAll works by processing public URLs, so your account remains completely private and secure.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" id="faq-q4">
+            <span>What types of content can I download?</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer" id="faq-a4">
+            <p>You can download Instagram Videos, Photos, Reels, Stories, IGTV videos, and Carousel (album) posts. All content is downloaded in the original quality.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" id="faq-q5">
+            <span>Can I download from private accounts?</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer" id="faq-a5">
+            <p>No, InsDonAll can only download content from public Instagram accounts. Private account content is not accessible through our service for privacy and security reasons.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" id="faq-q6">
+            <span>What devices are supported?</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer" id="faq-a6">
+            <p>InsDonAll works on all devices and browsers including Windows, macOS, Linux, iOS, and Android. No app installation is needed — just use your web browser.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" id="faq-q7">
+            <span>Is the downloaded content watermark-free?</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer" id="faq-a7">
+            <p>Yes! All content downloaded through InsDonAll is in original quality without any added watermarks or compression.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo">
+            <div class="logo-icon">
+              <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                <rect x="2" y="2" width="28" height="28" rx="8" stroke="url(#logoGrad2)" stroke-width="2.5"/>
+                <circle cx="16" cy="16" r="6" stroke="url(#logoGrad2)" stroke-width="2.5"/>
+                <circle cx="23.5" cy="8.5" r="2" fill="url(#logoGrad2)"/>
+                <path d="M16 22L16 28" stroke="url(#logoGrad2)" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M13 25L16 28L19 25" stroke="url(#logoGrad2)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <defs>
+                  <linearGradient id="logoGrad2" x1="0" y1="0" x2="32" y2="32">
+                    <stop stop-color="#E040FB"/>
+                    <stop offset="0.5" stop-color="#FF5252"/>
+                    <stop offset="1" stop-color="#FFD740"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <span class="logo-text">Ins<span class="logo-highlight">DonAll</span></span>
+          </a>
+          <p class="footer-desc">InsDonAll is a free Instagram downloader tool. Download videos, photos, reels, stories, and IGTV content in HD quality.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#downloader">Downloader</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Download Types</h4>
+          <ul>
+            <li><a href="#downloader">Video Download</a></li>
+            <li><a href="#downloader">Photo Download</a></li>
+            <li><a href="#downloader">Reels Download</a></li>
+            <li><a href="#downloader">Story Download</a></li>
+            <li><a href="#downloader">IGTV Download</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="contact.html">Support</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom" id="disclaimer">
+        <p class="disclaimer">
+          <strong>Disclaimer:</strong> InsDonAll is not affiliated with Instagram or Meta. This tool is for personal use only. Users are responsible for ensuring they have the right to download and use the content. Please respect copyright and intellectual property rights.
+        </p>
+        <p class="copyright">&copy; 2026 InsDonAll by Ayan Sarkar. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
