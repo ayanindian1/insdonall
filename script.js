@@ -157,6 +157,21 @@ async function handleDownload() {
       body: JSON.stringify({ url })
     });
 
+    // Check if the server returned HTML (error page) instead of JSON
+    const contentType = response.headers.get("content-type");
+    if (contentType && contentType.indexOf("application/json") === -1) {
+      const text = await response.text();
+      console.error("Server returned non-JSON response:", text.substring(0, 200));
+      
+      if (text.includes("Cannot POST") || text.includes("404")) {
+        throw new Error("API File Not Found. If you are testing locally, please restart your Node server. If on cPanel, ensure all extractor PHP files are uploaded.");
+      } else if (text.includes("500") || text.includes("Fatal error")) {
+        throw new Error("Server Configuration Error. Please ensure facebook_extractor.php and other extractor files are in the exact same folder as api.php.");
+      } else {
+        throw new Error("Server returned an invalid response. Make sure you uploaded all files correctly.");
+      }
+    }
+
     const data = await response.json();
 
     if (!response.ok) {
